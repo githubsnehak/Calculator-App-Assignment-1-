@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// src/index.js (or your parent component)
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Calculator from './Components/Calculator/Calculator.js';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const App = () => {
+  const [calculatorState, setCalculatorState] = useState({
+    operation: 'add',
+    input1: 0,
+    input2: 0,
+  });
+
+  const handleInputChange = (name, value) => {
+    setCalculatorState((prevState) => ({
+      ...prevState,
+      [name]: name === 'operation' ? value : Number(value),
+    }));
+  };
+
+  return (
+    <div>
+      <Calculator
+        operation={calculatorState.operation}
+        onInputChange={handleInputChange}
+        input1={calculatorState.input1}
+        input2={calculatorState.input2}
+      />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

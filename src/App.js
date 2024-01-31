@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// src/components/App.js
+var React = require('react');
+var Calculator = require('./Calculator/Calculator');
+var ActionList = require('./ActionList/ActionList');
+var actionsData = require('../data/actions.json');
+require('./App.css'); // Import styles if needed
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input1: 0,
+      input2: 0,
+      operation: 'add',
+    };
+  }
+
+  handleInputChange(name, value) {
+    this.setState({ [name]: Number(value) });
+  }
+
+  
+  render() {
+    return (
+      <div className="app">
+        <Calculator
+          operation={this.state.operation}
+          onInputChange={(name, value) => this.handleInputChange(name, value)}
+          input1={this.state.input1}
+          input2={this.state.input2}
+        />
+        <ActionList actions={actionsData} />
+      </div>
+    );
+  }
 }
 
-export default App;
+module.exports = App;

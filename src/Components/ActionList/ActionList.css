@@ -1,0 +1,19 @@
+/* src/components/ActionList/ActionList.css */
+.action-list {
+    margin: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  

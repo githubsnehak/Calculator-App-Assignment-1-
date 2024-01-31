@@ -1,0 +1,49 @@
+/* src/components/Calculator/Calculator.css */
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  margin-top: 100px;
+}
+
+.number {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.operation-select,
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.operation-select {
+  margin: 10px;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+label {
+  margin-bottom: 5px;
+}
+.calculator-box {
+  background-color: #f0f0f0; 
+  padding: 40px; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  
+}
+.h{
+  margin-left: 20px;
+}
